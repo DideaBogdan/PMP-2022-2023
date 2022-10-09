@@ -31,7 +31,7 @@ server3 = stats.gamma.rvs(5, scale=1 / 2, size=10000)
 server4 = stats.gamma.rvs(5, scale=1 / 3, size=10000)
 servertime = stats.expon.rvs(scale=1 / 4, size=10000)
 
-direct_to_server = []
+
 direct_to_server = random.choices((0, 1, 2, 3), weights=(0.25, 0.25, 0.30, 0.20), k=10000)
 
 response_time = []
@@ -40,11 +40,11 @@ for i in range(1, 10000):
     if direct_to_server[i] == 0:
         response_time.append(server1[i] + direct_to_server[i])
     elif direct_to_server[i] == 1:
-        response_time.append(server2[i])
+        response_time.append(server2[i] + direct_to_server[i])
     elif direct_to_server[i] == 2:
-        response_time.append(server3[i])
+        response_time.append(server3[i] + direct_to_server[i])
     elif direct_to_server[i] == 3:
-        response_time.append(server4[i])
+        response_time.append(server4[i]+ direct_to_server[i])
 
 more_than_3 = 0
 for i in range(len(response_time)):
