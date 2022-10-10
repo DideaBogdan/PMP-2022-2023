@@ -69,10 +69,10 @@ sb = []
 bs = []
 bb = []
 for i in range(0, 100):
-    ss.append((fair_coin[i] + biased_coin[i])/20)
-    sb.append((fair_coin[i] + (10 - biased_coin[i])) / 20)
-    bs.append(((10 - fair_coin[i]) + biased_coin[i]) / 20)
-    bb.append((20 - (fair_coin[i] + biased_coin[i])) / 20)
+    ss.append((fair_coin[i] + biased_coin[i])/40)
+    sb.append((fair_coin[i] + (10 - biased_coin[i])) / 40)
+    bs.append(((10 - fair_coin[i]) + biased_coin[i]) / 40)
+    bb.append((20 - (fair_coin[i] + biased_coin[i])) / 40)
 
 az.plot_posterior({'ss': ss, 'sb': sb, 'bs': bs, 'bb': bb})  # Afisarea aproximarii densitatii probabilitatilor, mediei, intervalului etc. variabilelor x,y,z
 plt.show()
