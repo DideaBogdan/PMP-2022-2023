@@ -83,6 +83,7 @@ def estimate_pi(N):
     inside = (x**2 + y**2) <= 1
     pi = inside.sum()*4/N
     error = abs((pi - np.pi) / pi) * 100
+    """
     outside = np.invert(inside)
     plt.figure(figsize=(8, 8))
     plt.plot(x[inside], y[inside], 'b.')
@@ -93,16 +94,24 @@ def estimate_pi(N):
     plt.yticks([])
     plt.legend(loc=1, frameon=True, framealpha=0.9)
     plt.show()
+    """
     return error
 
 error_list = []
 error_list.append(estimate_pi(100))
 error_list.append(estimate_pi(1000))
 error_list.append(estimate_pi(10000))
+error_list.append(estimate_pi(5000))
+error_list.append(estimate_pi(8000))
+error_list.append(estimate_pi(7000))
+error_list.append(estimate_pi(2000))
 
 error_mean = statistics.mean(error_list)
 error_std = statistics.stdev(error_list)
-plt.errorbar(-1, 1, yerr=error_mean, xerr=error_std)
+x, y = np.random.uniform(-1, 1, size=(2, 100))
+plt.errorbar(x, y, error_mean)
+plt.show()
+plt.errorbar(x, y, error_std)
 plt.show()
 
 #Exercitiul 3
